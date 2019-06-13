@@ -17,24 +17,56 @@ namespace CargaMasiva.Dao
             bool exito = false;
             connection.Close();
             connection.Open();
-            string proceso = "AltaVotos";
-            MySqlCommand cmd = new MySqlCommand(proceso, connection);
-            cmd.CommandType = CommandType.StoredProcedure;
-            foreach (var item in listaGuardar)
+            //foreach (var item in listaGuardar)
+            //{
+            for (int i = 0; i < listaGuardar.Count; i++)
             {
-                cmd.Parameters.AddWithValue("Votos_in", item.Votos);
-                cmd.Parameters.AddWithValue("Usuario_in", item.Usuario);
-                cmd.Parameters.AddWithValue("createAt_in", item.createAt);
-                cmd.Parameters.AddWithValue("updateAt_in", item.updateAt);
-                cmd.Parameters.AddWithValue("Visible_in", item.Visible);
-                cmd.Parameters.AddWithValue("Mesa_id_in", item.Mesa_id);
-                cmd.Parameters.AddWithValue("Candidato_id_in", item.Candidato_id);
+                string proceso = "AltaVotos";
+                MySqlCommand cmd = new MySqlCommand(proceso, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("Votos_in", listaGuardar[i].Votos);
+                cmd.Parameters.AddWithValue("Usuario_in", listaGuardar[i].Usuario);
+                cmd.Parameters.AddWithValue("createAt_in", listaGuardar[i].createAt);
+                cmd.Parameters.AddWithValue("updateAt_in", listaGuardar[i].updateAt);
+                cmd.Parameters.AddWithValue("Visible_in", listaGuardar[i].Visible);
+                cmd.Parameters.AddWithValue("Mesa_id_in", listaGuardar[i].Mesa_id);
+                cmd.Parameters.AddWithValue("Candidato_id_in", listaGuardar[i].Candidato_id);
                 cmd.ExecuteNonQuery();
-
             }
             exito = true;
+            //connection.Close();
+            //connection.Open();
+            ////foreach (var item in listaGuardar)
+            ////{
+            //for (int i = 1001; i < 1000; i++)
+            //{
+            //    string proceso = "AltaVotos";
+            //    MySqlCommand cmd = new MySqlCommand(proceso, connection);
+            //    cmd.CommandType = CommandType.StoredProcedure;
+            //    cmd.Parameters.AddWithValue("Votos_in", listaGuardar[i].Votos);
+            //    cmd.Parameters.AddWithValue("Usuario_in", listaGuardar[i].Usuario);
+            //    cmd.Parameters.AddWithValue("createAt_in", listaGuardar[i].createAt);
+            //    cmd.Parameters.AddWithValue("updateAt_in", listaGuardar[i].updateAt);
+            //    cmd.Parameters.AddWithValue("Visible_in", listaGuardar[i].Visible);
+            //    cmd.Parameters.AddWithValue("Mesa_id_in", listaGuardar[i].Mesa_id);
+            //    cmd.Parameters.AddWithValue("Candidato_id_in", listaGuardar[i].Candidato_id);
+            //    cmd.ExecuteNonQuery();
+            //}
             connection.Close();
             return exito;
         }
+        //string proceso = "AltaVotos";
+        //MySqlCommand cmd = new MySqlCommand(proceso, connection);
+        //cmd.CommandType = CommandType.StoredProcedure;
+        //cmd.Parameters.AddWithValue("Votos_in", item.Votos);
+        //cmd.Parameters.AddWithValue("Usuario_in", item.Usuario);
+        //cmd.Parameters.AddWithValue("createAt_in", item.createAt);
+        //cmd.Parameters.AddWithValue("updateAt_in", item.updateAt);
+        //cmd.Parameters.AddWithValue("Visible_in", item.Visible);
+        //cmd.Parameters.AddWithValue("Mesa_id_in", item.Mesa_id);
+        //cmd.Parameters.AddWithValue("Candidato_id_in", item.Candidato_id);
+        //cmd.ExecuteNonQuery();
+
+        //}
     }
 }

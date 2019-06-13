@@ -26,7 +26,7 @@ namespace CargaMasiva.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("          server=localhost;Port=3307;User Id=root;password=admin;database=cargama" +
-            "siva_desarrollo;Persist Security Info=True")]
+            "siva_desarrollo1;Persist Security Info=True")]
         public string db {
             get {
                 return ((string)(this["db"]));
