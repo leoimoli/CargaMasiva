@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -135,13 +136,26 @@ namespace CargaMasiva
         {
             double pow = Math.Pow(i, i);
         }
-
+        private TimeSpan Cronometrar()
+        {
+            //Guarda la hora justo antes del proceso a cronometrar
+            DateTime tiempo1 = DateTime.Now;
+            //Guarda la hora al finalizar
+            DateTime tiempo2 = DateTime.Now;
+            //Crea un "intervalo temporal"
+            TimeSpan total = new TimeSpan(tiempo2.Ticks - tiempo1.Ticks);
+            return total;
+        }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
             ProgressBar();
+            TimeSpan tiempo = Cronometrar();
             bool exito = ListasInternas.GuardarListasInternas(listaGuardar);
+            stopWatch.Stop();
             if (exito == true)
-            { MessageBox.Show("Se registraron las listas internas exitosamente"); }
+            { MessageBox.Show("Se registraron las listas internas exitosamente en un tiempo de = '" + stopWatch.Elapsed.ToString() + "'"); }
             else { MessageBox.Show("Fallo fijate que onda"); }
             LimpiarCampos();
         }

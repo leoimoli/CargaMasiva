@@ -36,5 +36,12 @@ namespace CargaMasiva
             _cargar.Show();
             Hide();
         }
+
+        private void btnVotos_Click(object sender, EventArgs e)
+        {
+            Form1 _cargaVoto = new Form1();
+            _cargaVoto.Show();
+            Hide();
+        }
     }
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -156,22 +157,32 @@ namespace CargaMasiva
         {
             double pow = Math.Pow(i, i);
         }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            progressBar1.Visible = true;
-            this.timer1.Start();
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+            ProgressBar();
             bool exito = Listas.GuardarListas(listaGuardar);
+            stopWatch.Stop();
             if (exito == true)
-            { MessageBox.Show("Se registraron las listas exitosamente"); }
+            { MessageBox.Show("Se registraron las listas exitosamente en un tiempo de = '" + stopWatch.Elapsed.ToString() + "'"); }
             else { MessageBox.Show("Fallo fijate que onda"); }
             LimpiarCampos();
+        }
+        private TimeSpan Cronometrar()
+        {
+            //Guarda la hora justo antes del proceso a cronometrar
+            DateTime tiempo1 = DateTime.Now;
+            //Guarda la hora al finalizar
+            DateTime tiempo2 = DateTime.Now;
+            //Crea un "intervalo temporal"
+            TimeSpan total = new TimeSpan(tiempo2.Ticks - tiempo1.Ticks);
+            return total;
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.progressBar1.Increment(1);
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             InicioWF _inicio = new InicioWF();

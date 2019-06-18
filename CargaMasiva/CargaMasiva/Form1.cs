@@ -11,16 +11,17 @@ using System.Data.OleDb;
 using System.IO;
 using CargaMasiva.Entidades;
 using CargaMasiva.Dao;
+using System.Diagnostics;
 
 namespace CargaMasiva
 {
     public partial class Form1 : Form
     {
+        Stopwatch stopWatch = new Stopwatch();
         public Form1()
         {
             InitializeComponent();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -36,6 +37,8 @@ namespace CargaMasiva
         {
             progressBar1.Value = Convert.ToInt32(null);
             progressBar1.Visible = false;
+            btnVolver.Enabled = true;
+            btnCargar.Visible = true;
         }
         private void ProgressBar()
         {
@@ -53,7 +56,6 @@ namespace CargaMasiva
         {
             double pow = Math.Pow(i, i);
         }
-
         private void Datos()
         {
             //Obtenemos el archivo desde la ubicación actual
@@ -170,19 +172,37 @@ namespace CargaMasiva
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            //ProgressBar();
-            progressBar1.Visible = true;
-            this.timer1.Start();
+            //TimeSpan ts = new TimeSpan(0, 0, 0, 0, (int)stopWatch.ElapsedMilliseconds);
+            stopWatch.Start();
+            //timer1.Enabled = true;
+            //label3.Visible = true;
+            //lblMinutos.Visible = true;
+            //lblSegundos.Visible = true;
+            //lblMilesimas.Visible = true;
+            btnVolver.Enabled = false;
+            btnGuardar.Enabled = false;
+            ProgressBar();
             bool exito = Votos.GuardarVotos(listaGuardar);
+            stopWatch.Stop();
             if (exito == true)
-            { MessageBox.Show("Se registraron los votos exitosamente"); }
+            { MessageBox.Show("Se registraron los votos exitosamente en un tiempo de = '" + stopWatch.Elapsed.ToString() + "'"); }
             else { MessageBox.Show("Fallo fijate que onda"); }
+            stopWatch.Stop();
             LimpiarCampos();
+        }
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            InicioWF _inicio = new InicioWF();
+            _inicio.Show();
+            Hide();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            this.progressBar1.Increment(1);
+            TimeSpan ts = new TimeSpan(0, 0, 0, 0, (int)stopWatch.ElapsedMilliseconds);
+            lblMinutos.Text = ts.Minutes.ToString().Length < 2 ? 0 + ts.Minutes.ToString() : ts.Minutes.ToString();
+            lblSegundos.Text = ts.Seconds.ToString().Length < 2 ? 0 + ts.Seconds.ToString() : ts.Seconds.ToString();
+            lblMilesimas.Text = ts.Milliseconds.ToString();
         }
     }
 }
