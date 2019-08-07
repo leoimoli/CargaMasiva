@@ -33,11 +33,12 @@
             this.btnListasInternas = new System.Windows.Forms.Button();
             this.btnCandidatos = new System.Windows.Forms.Button();
             this.btnVotos = new System.Windows.Forms.Button();
+            this.btnZonas = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCargarLista
             // 
-            this.btnCargarLista.Location = new System.Drawing.Point(382, 165);
+            this.btnCargarLista.Location = new System.Drawing.Point(262, 165);
             this.btnCargarLista.Name = "btnCargarLista";
             this.btnCargarLista.Size = new System.Drawing.Size(154, 60);
             this.btnCargarLista.TabIndex = 0;
@@ -47,7 +48,7 @@
             // 
             // btnListasInternas
             // 
-            this.btnListasInternas.Location = new System.Drawing.Point(595, 165);
+            this.btnListasInternas.Location = new System.Drawing.Point(475, 165);
             this.btnListasInternas.Name = "btnListasInternas";
             this.btnListasInternas.Size = new System.Drawing.Size(154, 60);
             this.btnListasInternas.TabIndex = 1;
@@ -57,7 +58,7 @@
             // 
             // btnCandidatos
             // 
-            this.btnCandidatos.Location = new System.Drawing.Point(382, 278);
+            this.btnCandidatos.Location = new System.Drawing.Point(262, 278);
             this.btnCandidatos.Name = "btnCandidatos";
             this.btnCandidatos.Size = new System.Drawing.Size(154, 60);
             this.btnCandidatos.TabIndex = 2;
@@ -67,7 +68,7 @@
             // 
             // btnVotos
             // 
-            this.btnVotos.Location = new System.Drawing.Point(595, 278);
+            this.btnVotos.Location = new System.Drawing.Point(475, 278);
             this.btnVotos.Name = "btnVotos";
             this.btnVotos.Size = new System.Drawing.Size(154, 60);
             this.btnVotos.TabIndex = 3;
@@ -75,11 +76,22 @@
             this.btnVotos.UseVisualStyleBackColor = true;
             this.btnVotos.Click += new System.EventHandler(this.btnVotos_Click);
             // 
+            // btnZonas
+            // 
+            this.btnZonas.Location = new System.Drawing.Point(672, 165);
+            this.btnZonas.Name = "btnZonas";
+            this.btnZonas.Size = new System.Drawing.Size(154, 60);
+            this.btnZonas.TabIndex = 4;
+            this.btnZonas.Text = "Actualizar Zonas";
+            this.btnZonas.UseVisualStyleBackColor = true;
+            this.btnZonas.Click += new System.EventHandler(this.btnZonas_Click);
+            // 
             // InicioWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1188, 654);
+            this.Controls.Add(this.btnZonas);
             this.Controls.Add(this.btnVotos);
             this.Controls.Add(this.btnCandidatos);
             this.Controls.Add(this.btnListasInternas);
@@ -98,5 +110,6 @@
         private System.Windows.Forms.Button btnListasInternas;
         private System.Windows.Forms.Button btnCandidatos;
         private System.Windows.Forms.Button btnVotos;
+        private System.Windows.Forms.Button btnZonas;
     }
 }

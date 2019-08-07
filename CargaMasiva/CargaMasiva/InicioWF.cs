@@ -43,5 +43,12 @@ namespace CargaMasiva
             _cargaVoto.Show();
             Hide();
         }
+
+        private void btnZonas_Click(object sender, EventArgs e)
+        {
+            ActualizarZonasWF _Zonas = new ActualizarZonasWF();
+            _Zonas.Show();
+            Hide();
+        }
     }
 }

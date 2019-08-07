@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActualizarZonasWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActualizarZonasWF.Designer.cs">
+      <DependentUpon>ActualizarZonasWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="CargaMasivaListaInternaWF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,10 +77,12 @@
     <Compile Include="Dao\Listas.cs" />
     <Compile Include="Dao\ListasInternas.cs" />
     <Compile Include="Dao\Votos.cs" />
+    <Compile Include="Dao\Zonas.cs" />
     <Compile Include="Entidades\TablaCandidatos.cs" />
     <Compile Include="Entidades\TablaLista.cs" />
     <Compile Include="Entidades\TablaListaInterna.cs" />
     <Compile Include="Entidades\TablaVotos.cs" />
+    <Compile Include="Entidades\Zonas.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +97,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ActualizarZonasWF.resx">
+      <DependentUpon>ActualizarZonasWF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CargaMasivaListaInternaWF.resx">
       <DependentUpon>CargaMasivaListaInternaWF.cs</DependentUpon>
     </EmbeddedResource>

@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="db" Type="System.String" Scope="User">
-      <Value Profile="(Default)">          server=localhost;Port=3307;User Id=root;password=admin;database=cargamasiva_prueba;Persist Security Info=True</Value>
+      <Value Profile="(Default)">          server=localhost;Port=3307;User Id=root;password=admin;database=votos_paso;Persist Security Info=True</Value>
     </Setting>
   </Settings>
 </SettingsFile>
